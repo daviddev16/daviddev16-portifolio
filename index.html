@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Duarte | Portifólio</title>
+    <link rel="icon" href="assets/icon.png">
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+
+      .profile-pic {
+        vertical-align: middle;
+        width: 200px;
+        height: 200px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        margin-top: -120px;
+        margin-right: 100px;
+        object-fit: cover;
+        position: relative;
+        box-shadow: 0 0px 20px rgb(0 0 0 / 0.05);
+
+    }
+
+      body {
+        background-color: #ffffff;
+        font-family: Helvetica, sans-serif;
+        margin: 0px;
+      }
+
+      main {
+        color: #020617;
+        justify-items: center;
+        text-align: center;
+        padding-top: 5%;
+      }
+
+      header {
+        color: #171717;
+        background-color: #ffffff;
+        justify-items: center;
+        text-align: center;
+        padding-top: 100px;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 0px;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top: 100px;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-image: linear-gradient(0, #f472b6, #ef4444, #a3e635, #facc15);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      .container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      .left {
+        left: 0;
+      }
+
+      .right {
+        left: 50%;
+      }
+
+      .content {
+        padding: 10px 30px;
+        position: relative;
+      }
+
+      .alt-pack {
+        background-image: linear-gradient(-90deg, #ef4444, #f472b6);
+        color: #f8fafc;
+        border-style: hidden;
+        border-width: 2px;
+        border-radius: 10px;
+        padding: 20px;
+        padding-top: 2px;
+        box-shadow: 30px 30px #020617;
+
+      }
+
+      .alt-shop {
+        background-image: linear-gradient(18deg, #a3e635, #facc15);
+        color: #f8fafc;
+        border-style: hidden;
+        border-width: 2px;
+        border-radius: 10px;
+        padding: 20px;
+        padding-top: 2px;
+        box-shadow: -030px 30px #020617;
+      }
+
+      .cont-badge {
+        background-color: #ffffff;
+        border-style: dotted;
+        border-color: #f5f5f5;
+        color: #020617;
+        border-width: 1px;
+        border-radius: 20px;
+        font-size: 12px;
+        text-align: left;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 10px;
+        transition: all 2s linear;
+        width: fit-content;
+        cursor: grab;
+    }
+
+      .tech-badge {
+        background-color: #ffffff;
+        border-style: hidden;
+        border-color: #f5f5f5;
+        color: #020617;
+        border-width: 1px;
+        border-radius: 5px;
+        font-size: 12px;
+        text-align: left;
+        width: fit-content;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: inline-flex;
+      }
+
+      .tech-badge#normal {
+        background-color: #0a0a0a;
+        color: #f5f5f5;
+      }
+
+      .tech-badge#normal2 {
+        background-color: #4f46e5;
+        color: #f5f5f5;
+      }
+
+      .tech-badge#obsoleto {
+        background-color: #ef4444;
+        color: #f5f5f5;
+      }
+
+      .tech-badge#ativo {
+        background-color: #a3e635;
+        color: #f5f5f5;
+      }
+
+      .tech-badge#plus {
+        background-color: #f0abfc;
+        color: #4a044e;
+      }
+
+      hr.solid {
+        border-top: 0px solid #ffffff;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+
+      .hidden {
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+      .cont-badge:hover .hidden {
+        opacity: 1;
+        height: auto;
+      }
+
+      .projects {
+        margin: 20px;
+        padding-bottom: 5%;
+        padding-top: 2%;
+    }
+
+      .project-card {
+        display: inline-block;
+        border-radius: 5px;
+        border-width: 2px;
+        background-color: #ffffff;
+        border-color: #020617;
+        border-style: solid;
+        width: 300px;
+        height: 400px;
+        text-align: left;
+        padding-top: 15px;
+        padding-left: 35px;
+        padding-right: 35px;
+        margin-bottom: 10px;
+        vertical-align: top;
+        transition: all 200ms ease;
+    }
+
+
+    .project-card:hover {
+        filter: invert(100%);
+    }
+
+      /* Media queries - Responsive timeline on screens less than 600px wide */
+      @media screen and (max-width: 800px) {
+        /* Place the timelime to the left */
+        .timeline::after {
+            opacity: 0;
+        }
+
+        .profile-pic{
+            margin-top: -35px;
+            margin-right: 0px;
+            display: unset;
+        }
+
+        header {
+            min-height: 600px;
+        }
+
+        /* Full-width containers */
+        .container {
+          width: 100%;
+          padding-left: 30px;
+          padding-right: 25px;
+        }
+
+        /* Make sure that all arrows are pointing leftwards */
+        .container::before {
+          left: 60px;
+          border: medium solid white;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
+
+        /* Make sure all circles are at the same spot */
+        .left::after,
+        .right::after {
+          left: 15px;
+        }
+
+        /* Make all right containers behave like the left ones */
+        .right {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header style="text-align: center; height: 350px; margin-bottom: 100px;">
+       <img src="assets/img/profile.png" alt="Avatar" class="profile-pic" style="vertical-align: middle; display: inline-block;">
+       <div style="display: inline-block; margin-left: 10px; ">
+        <h2 id="nome" style="min-width: 200px">David Duarte Pinheiro</h2>
+        <text style="font-size: 15px; min-width: 200px" id="subtitulo">Software Engineer ⋅ </text>
+        <br><br>
+           <!-- <div id="lnxPrefix" style="text-align: left;">
+               <span style="color: #10b981; font-weight: bold;">daviddev16@kbs-01</span><span>:</span>
+               <span style="color: #d946ef; font-weight: bold;">/home</span><span style="font-size: 12px;">$</span>
+            </div>-->
+            <span style="display: inline-block; max-width: 500px; text-align: justify; text-justify: inter-word; min-width: 500px; min-height: 200px;" id="descricao">
+               Sou um desenvolvedor de software que ama o que faz. Atualmente curso Ciência da Computação 
+                 Comecei a programar aos 12 anos em Java e atualmente, busco aplicar todo meu conhecimento em
+                desenvolvimento de ferramentas, scripts e softwares que possam auxiliar na resolução de problemas 
+                cotidianos. Também gosto bastante de Ciber Segurança, Engenharia de Redes de computadores, 
+                Banco de Dados e DevOps.
+                </span>
+       </div>
+       <br>
+    </header>
+    <main>
+        <h4>
+            LINGUAGENS E TECNOLOGIAS QUE JÁ UTILIZEI E QUE ESTOU APRENDENDO
+        </h4>
+        <div style="margin-top: 120px;">
+            <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white"/>
+            <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white"/>
+            <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white"/>
+            <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white"/>
+            <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/>
+            <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+            <img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white"/>
+            <img src="https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white">
+            <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
+            <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
+        </div>
+        <div style="margin: 5px;">
+            <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
+            <img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white"/>
+            <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white"/>
+            <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
+            <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"/>
+            <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white">
+            <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white"/>
+        </div>
+        <div style="margin: 5px;">
+            <img src="https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Manjaro-35BF5C?style=for-the-badge&logo=Manjaro&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge"/>
+            <img src="https://img.shields.io/badge/openSUSE-%2364B345?style=for-the-badge&logo=openSUSE&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+        </div>
+        <div style="margin-bottom: 100px;">
+            <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white"/>
+            <img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"/>
+            <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
+        </div>
+        <h4>
+            PROJETOS
+        </h4>
+        <br>
+        <div class="projects">
+            <div class="project-card">
+                <h2 style="display: inline-block;">sefaz-availability-core</h2>
+                <a href="https://github.com/daviddev16/sefaz-availability-core">(Repositório no Github)</a>
+                <h5 style="height: 195px;">Serviço de integração com Google Chat para alerta de disponibilidade de NFe e 
+                    NFCe na SEFAZ.</h5>
+                <span class="tech-badge" id="normal">Feito em Java 11</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">J4Cide</h2>
+                <br>
+                <a href="https://github.com/daviddev16/j4cIde">(Repositório no Github)</a>
+                <h5 style="height: 165px;">IDE para programação em C/C++ simples, que usa o compilador GCC para gerar 
+                    arquivos executáveis. Fiz apenas para projetos da faculdade.</h5>
+                <span class="tech-badge" id="normal">Java 8</span>
+                <span class="tech-badge" id="normal">CSharp .NET Framework 4.5</span>
+                <span class="tech-badge" id="ativo">Ativo / Em utilização </span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Network Probe Service</h2>
+                <br>
+                <a href="https://github.com/daviddev16/networkprobe">(Repositório no Github)</a>
+                <h5 style="height: 170px;">Network Probe é um serviço de rede desenvolvido para facilitar conexões e 
+                    configurações de aplicações desktop através de serviços de rede UDP/TCP. Configurável através da
+                     aplicações servidora, através de um template JSON.</h5>
+                <span class="tech-badge" id="normal">Java 11</span>
+                <span class="tech-badge" id="plus">Trabalhando em Melhoria</span>
+                <span class="tech-badge" id="ativo">Ativo</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Quadratic Bezier Usando p5.js</h2>
+                <br>
+                <a href="https://github.com/daviddev16/quadratic-bezier-p5js">(Repositório no Github)</a>
+                <h5 style="height: 170px;">Representação visual de uma curva Bézier feito em JavaScript usando a framework p5js.</h5>
+                <span class="tech-badge" id="normal">Feito em JavaScript</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">SHP Analyzer</h2>
+                <br>
+                <a href="https://github.com/daviddev16/shp-analyzer">(Repositório no Github)</a>
+                <h5 style="height: 130px;">Este programa server para identificar o arquivo .shp que veio corrompido. 
+                    A aplicação é compilada em .exe e .jar, pode ser executada como um executável nativo do windows 
+                    ou através do Java com versão superior ou igual a 8.</h5>
+                <span class="tech-badge" id="normal">Feito em Java</span>
+                &
+                <span class="tech-badge" id="normal">Feito em CSharp .NET Framework 4.5</span>
+                <span class="tech-badge" id="ativo">Ativo / Em utilização </span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">DB Analyzer (Antigo)</h2>
+                <br>
+                <a href="https://github.com/daviddev16/dbanalyzer">(Repositório no Github)</a>
+                <h5 style="height: 130px;">o db-analyzer foi projetado para analisar e encontrar o caractere hexdecimal inválido informado 
+                    através do EurekaLog. Facilitando a identificação do problema e localizando a tabela em que se encontra o caractere, 
+                    economizando tempo na pesquisa e no atendimento.</h5>
+                <span class="tech-badge" id="normal">Feito em Java</span>
+                &
+                <span class="tech-badge" id="normal">Feito em CSharp .NET Framework 4.5</span>
+                <span class="tech-badge" id="ativo">Ativo / Em utilização </span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Produtos e Vendas (Tech4Me)</h2>
+                <br>
+                <a href="https://github.com/daviddev16/produtos-e-vendas">(Repositório no Github)</a>
+                <h5 style="height: 130px;">Projeto para prova final da Tech4Me - Backend em Java. O software possui interface e faz: 1 – Incluir produto, 2 – Consultar produto, 3 – Listagem de produtos, 4 – Vendas por período – detalhado e 5 – Realizar venda.</h5>
+                <span class="tech-badge" id="normal">Feito em Java</span>
+                &
+                <span class="tech-badge" id="normal">Java Swing</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Social Media - CCOMP 2023</h2>
+                <br>
+                <a href="https://github.com/daviddev16/SocialMediaAPI/blob/main/deployment.md">(Ler participação)</a>
+                <h5 style="height: 100px;">Este projeto foi desenvolvido durante o primeiro período. É um aplicativo desenvolvido 
+                    em Kotlin (Jetpack Compose) e em Java ( Spring ) pelo grupo, onde eu fiquei responsável pela parte de disponibilidade da aplicação.</h5>
+                <span class="tech-badge" id="normal">Feito em Java / Kotlin</span>
+                <span class="tech-badge" id="normal2">AWS</span>
+                <span class="tech-badge" id="normal2">MongoDB</span>
+                <span class="tech-badge" id="normal2">OpenVPN</span>
+                <span class="tech-badge" id="normal2">Ubuntu Linux (Roteamento)</span>
+                <span class="tech-badge" id="normal2">Docker</span>
+                <span class="tech-badge" id="normal2">Git / Github Actions</span>
+                <span class="tech-badge" id="normal2">Nginx</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Social Media - Status API</h2>
+                <br>
+                <a href="https://github.com/daviddev16/socialmediastatus-api">(Repositório no Github)</a>
+                <h5 style="height: 100px;">O serviço de Status da aplicação do Social Media App. Usado para monitorar o status de 
+                    operação da aplicação em produção. Essa API ficava em outro container</h5>
+                <span class="tech-badge" id="normal">Feito em Java</span>
+                <span class="tech-badge" id="normal">Docker</span>
+                <span class="tech-badge" id="normal">Nginx</span>
+                <span class="tech-badge" id="normal">OpenFeign</span>
+                <span class="tech-badge" id="normal">Spring Boot</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">SigmaModLoader (Obsoleto)</h2>
+                <br>
+                <a href="https://github.com/daviddev16/SigmaModLoader">(Repositório no Github)</a>
+                <h5 style="height: 120px;">SigmaModLoader faz o carregamento de Mods (.dll feitas por pessoas externas)
+                para injeção de recursos e implementações novas no jogo através de reflexões, dinâmicamente.
+                </h5>
+                <span class="tech-badge" id="normal">Feito no Unity</span>
+                <span class="tech-badge" id="normal">CSharp .NET Framework 4.7</span>
+                <span class="tech-badge" id="obsoleto">Obsoleto</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Vector Fields em p5.js</h2>
+                <br>
+                <a href="https://github.com/daviddev16/vector-fields">(Repositório no Github)</a>
+                <h5 style="height: 190px;">Este projeto é usado para visualizar campos vetoriais através de representações
+                gráficas de matrizes vetorias simples.</h5>
+                <span class="tech-badge" id="normal">Feito em JavaScript com p5.Js</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Music Box</h2>
+                <br>
+                <a href="https://github.com/musicboxorg/java-musicbox/tree/Development">(Repositório no Github)</a>
+                <h5 style="height: 190px;">Music Bot é um bot de tocar musica em servidores do Discord. 
+                    O bot já foi utilizado por mais de 20 servidore, porém, foi desativado para o público 
+                    no final de 2021.</h5>
+                <span class="tech-badge" id="normal">Feito em Java</span>
+                <span class="tech-badge" id="normal">JDA</span>
+                <span class="tech-badge" id="obsoleto">Obsoleto</span>
+            </div>
+            <div class="project-card">
+                <h2 style="display: inline-block;">Unity Inventory System</h2>
+                <br>
+                <a href="https://github.com/daviddev16/unity-inventory-system">(Repositório no Github)</a>
+                <h5 style="height: 130px;">Sistema de inventário customizado e baseado em Slots para implementação em seus próprios jogos, feito no Unity.</h5>
+                <span class="tech-badge" id="normal">Feito no Unity</span>
+                <span class="tech-badge" id="normal">CSharp .NET Framework 4.7</span>
+            </div>
+        </div>
+        <br>
+        <h4>
+            TRAJETÓRIA
+        </h4>
+        <br>
+        <div class="timeline">
+        <div class="container left">
+          <div class="content">
+            <div class="alt-shop">
+                <h2>2023</h2>
+                <hr class="solid" />
+                <h4>ALTERDATA SOFTWARE</h4>
+                <h5>Suporte Técnico shop</h5>
+                <text style="font-size: 12px">03/2023 até o momento</text>
+                <br /><br />
+                <hr class="solid" />
+                <h5>DESCRIÇÃO</h5>
+                <text style="font-size: 15px; text-align: justify;">
+                    Atualmente continuo atendo as demandas do setor Suporte, porém, agora, auxiliando os clientes no uso
+                    e dúvidas sobre o sistema Alterdata Shop (WShop, IShop, NFeasy, ERP4Me) também.
+                </text>
+                <hr class="solid" />
+                <h5>CONTRIBUIÇÕES</h5>
+                </h5>
+                <div class="cont-badge">
+                  <text style="font-size: 13px; font-weight: bold">SHP Analyzer</text>
+                  <i><span style="font-size: 12px;" >(SABER MAIS)</span></i>
+                  <div class="hidden">
+                      <div style="padding-top: 10px">
+                        SHP Analyzer é uma ferramenta desenvolvida por mim para auxiliar na deteção de arquivos
+                        corrompidos durante o processo de integração do IShop e WShop. Diminuindo drasticamente
+                        o tempo de atendimento e facilitando o processo de localizar o erro na integração, que antes,
+                        teria que fazer manualmente, arquivo por arquivo.
+                        </div>
+                        <br />
+                        <span class="tech-badge" id="normal">Feito em Java</span>
+                        &
+                        <span class="tech-badge" id="normal">Feito em CSharp .NET Framework 4.5</span>
+                  </div>
+                </div>
+                <div class="cont-badge">
+                    <text style="font-size: 13px; font-weight: bold">DB Analyzer</text>
+                    <i><span style="font-size: 12px;" >(SABER MAIS)</span></i>
+                    <div class="hidden">
+                        <div style="padding-top: 10px">
+                            Devido há falta de controle dos caracteres especiais que vem durante o processo
+                            de integração web, desenvolvi essa aplicação para detectar caracteres UTF-8 que 
+                            possam causar erros de conversão de UTF-8 para LATIN1, agilizando a localização
+                            desse caracter que, antes, teria que ser feito manualmente no banco de dados.
+                            Atualmente, a aplicação possui um frontend feito em Java, porém, não está disponível
+                            ainda no Github, apenas a versão CLI.
+                        </div>
+                          <br />
+                          <span class="tech-badge" id="normal">Feito em Java</span>
+                          <span class="tech-badge" id="normal">PostgreSQL</span>
+                    </div>
+                  </div>
+                  <div class="cont-badge">
+                    <text style="font-size: 13px; font-weight: bold">Disponibilidade Sefaz x Google Chat</text>
+                    <i><span style="font-size: 12px;" >(SABER MAIS)</span></i>
+                    <div class="hidden">
+                        <div style="padding-top: 10px">
+                            Devido a bloqueios internos ao acesso a sites que fornecem a informação de disponibilidade da
+                            sefaz, fiz essa aplicação web que acessa as informações de disponibilidade e envia para os "espaços"
+                            do Google Chat, fazendo com que a equipe fique ciente de todos os status que ocorrer durante o dia,
+                            facilitando durante as rotinas de atendimento. 
+                        </div>
+                          <br />
+                          <span class="tech-badge" id="normal">Feito em Java</span>
+                    </div>
+                  </div>
+                <hr class="solid" />
+                <h5>COMPETÊNCIAS TÉCNICAS</h5>
+                <div class="tech-badge" id="generic">Rede de computadores</div>
+                <div class="tech-badge" id="generic">PostgreSQL</div>
+                <div class="tech-badge" id="generic">SQL Server</div>
+                <div class="tech-badge" id="generic">Servidores Linux</div>
+                <hr class="solid" />
+              </div>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <div class="alt-pack">
+              <h2>2022</h2>
+              <hr class="solid" />
+              <h4>ALTERDATA SOFTWARE</h4>
+              <h5>Jovem Aprendiz - Suporte de Instalação Pack</h5>
+              <text style="font-size: 12px">04/2022 à 02/2023</text>
+              <br /><br />
+              <hr class="solid" />
+              <h5>DESCRIÇÃO</h5>
+              <text style="font-size: 15px; text-align: justify;">
+                Trabalhei como atendente no suporte online e por telefone,
+                resolvendo questões técnicas em servidores e estações de
+                trabalho com problema de acesso ao sistema
+                <b>Alterdata Pack</b>, conectividade de rede, problemas com
+                banco de dados e base de dados corrompida.
+              </text>
+              <hr class="solid" />
+              <h5>CONTRIBUIÇÕES</h5>
+              </h5>
+              <div class="cont-badge">
+                <text style="font-size: 13px; font-weight: bold">PostgreSQL Vacuum Schema</text>
+                <i><span style="font-size: 12px;" >(SABER MAIS)</span></i>
+                <div class="hidden">
+                    <div style="padding-top: 10px">
+                        Algumas rotinas, exigiam rodar o vacuum full no banco de dados
+                        inteiro, somente para detectar um problema em um sistema
+                        específico, fazendo com que o atendimento demorasse. Criei
+                        essa ferramenta para otimizar o tempo, evitando rodar vacuum
+                        full em schemas que não tem relação com o sistema com
+                        problema.
+                      </div>
+                      <br />
+                      <span class="tech-badge" id="normal">Java</span>
+                </div>
+              </div>
+              <div class="cont-badge">
+                <text style="font-size: 13px; font-weight: bold">Migrações em servidores Linux</text>
+                <i><span style="font-size: 12px;" >(SABER MAIS)</span></i>
+                <div class="hidden">
+                    <div style="padding-top: 10px">
+                        Fiquei responsável durante um tempo por executar a migração do banco de dados
+                        PostgreSQL em cliente que utilizavam Linux em seus servidores, auxiliando na
+                        migração da versão do banco de dados, execução e restauração de backup através
+                        da linha de comando.
+                      </div>
+                      <br />
+                      <span class="tech-badge" id="normal">Rotina Especial </span>
+                </div>
+              </div>
+              <hr class="solid" />
+              <h5>COMPETÊNCIAS TÉCNICAS</h5>
+              <div class="tech-badge" id="generic">Rede de computadores</div>
+              <div class="tech-badge" id="generic">PostgreSQL</div>
+              <div class="tech-badge" id="generic">SQL Server</div>
+              <div class="tech-badge" id="generic">Servidores Linux</div>
+              <hr class="solid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+  <footer style="padding: 10%; text-align: center;">
+    Inicio
+  </footer>
+</html>
